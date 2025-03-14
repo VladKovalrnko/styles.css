@@ -1,0 +1,100 @@
+/* Параметры стиля для браузеров, не поддерживающих GL */
+* {
+    box-sizing: border-box;
+}
+
+.support-warning {
+    background: #ccb11c;
+    color: #000;
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    opacity: 0.95;
+    padding: 3rem;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.support-warning a {
+    color: inherit;
+}
+
+/* Обертка для грида */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Размеры грида */
+.grid--4x4 > .grid__item {
+    flex: 1 0 auto;   
+}
+
+@supports(display: grid) {
+    .support-warning {
+        display: none;
+    }
+    
+    .grid {
+        display: grid;
+    }
+}
+
+/* Соотношение долей */
+.grid--4x4 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(50vh, auto));
+}
+
+/* Параметры выравнивания для контента */
+.align-center {
+    align-items: center;
+    justify-content: center;
+}
+
+/* Контент */
+.content {
+    padding: 3.5rem;
+    max-width: 400px;
+}
+
+/* Заголовок */
+.heading {
+    font-family: 'Georgia', serif; /* Укажите ваш шрифт */
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+/* Описание */
+.description {
+    font-family: 'Arial', sans-serif; /* Укажите ваш шрифт */
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Цветовые темы */
+.theme-gray {
+    background: #808080;
+    color: #ffffff;
+}
+
+.theme-red {
+    background: #ff0000; /* Красный */
+    color: #ffffff; /* Белый текст */
+}
+
+.theme-blue {
+    background: #0000ff; /* Синий */
+    color: #ffffff; /* Белый текст */
+}
+
+.theme-green {
+    background: #008000; /* Зеленый */
+    color: #ffffff; /* Белый текст */
+}
